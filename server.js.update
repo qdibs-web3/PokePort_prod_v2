@@ -1,0 +1,6 @@
+// Update server.js to include the chat API endpoint
+const chatHandler = require('./api/chat');
+
+// Add this to the API routes section
+app.all('/api/chat', serverlessToExpress(chatHandler));
+app.post('/api/chat/upload', serverlessToExpress(chatHandler.upload));

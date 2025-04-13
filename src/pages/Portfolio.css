@@ -1,0 +1,614 @@
+/* Portfolio.css with enhanced responsive design */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Spacing between buttons and quantity */
+}
+
+.quantity-controls button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.quantity-controls button:hover {
+  background-color: #0056b3;
+}
+
+.quantity-controls button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.quantity-controls span {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.individual-price {
+  font-size: 0.8em; /* Smaller font size */
+  color: #666;
+  margin-top: 2px; /* Small spacing between market price and individual price */
+}
+
+/* Container for the entire Portfolio component */
+.portfolio-container {
+  padding: 0 10%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Not logged in message styling */
+.not-logged-in {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.not-logged-in h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.not-logged-in button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.not-logged-in button:hover {
+  background-color: #0056b3;
+}
+
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+  gap: 20px;
+}
+
+/* Add to Portfolio.css */
+.portfolio-title-section {
+  margin-bottom: 5px;
+}
+
+.portfolio-title-section h1 {
+  margin-bottom: 1px;
+}
+
+.portfolio-value {
+  color: #3ff558;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Filter buttons styling */
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+}
+
+.filter-buttons button {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #007bff;
+  background-color: transparent;
+  color: #007bff;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-buttons button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.filter-buttons button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Portfolio grid styling */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  align-items: stretch; /* Ensure all cards stretch to the same height */
+  margin-bottom: 100px;
+}
+
+/* Card styling */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left-align all content */
+  text-align: left; /* Left-align text */
+  background-color: #111;
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  min-width: 200px; /* Prevent cards from shrinking when few remain */
+  height: 100%; /* Ensure all cards take up the same height */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.1rem;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin: 0.001rem 0; /* Reduced vertical spacing */
+  color: #007bff;
+  width: 100%; /* Ensure the h3 takes up the full width */
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #ffffff;
+  margin: -0.1rem 0; /* Reduced vertical spacing */
+  line-height: 1; /* Reduced line height */
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between; /* Align price to the left and quantity controls to the right */
+  align-items: flex-end; /* Align items at the bottom */
+  width: 100%; /* Ensure footer takes full width */
+  margin-top: 5px; /* Push footer to the bottom of the card */
+}
+
+.price-section {
+  text-align: left; /* Align price text to the left */
+}
+
+
+/* Enlarged card overlay */
+.enlarged-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+/* Enlarged card container */
+.enlarged-card {
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  text-align: center;
+}
+
+/* Close button for enlarged card */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Add margin to the set number line */
+.set-number {
+  margin-bottom: 10px; /* 20px vertical gap */
+}
+
+/* Enlarged card image */
+.enlarged-card img {
+  max-width: 100%;
+  max-height: 80vh; /* Limit height to 80% of viewport height */
+  border-radius: 8px;
+}
+
+
+.card.sealed-product h3 {
+  margin-top: 50px;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.card.sealed-product p {
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.card.sealed-product .card-footer {
+  margin-top: 10px;
+}
+
+.card.sealed-product .price-section h3 {
+  font-size: 1rem;
+}
+
+.card.sealed-product .individual-price {
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.card.sealed-product img {
+  margin-bottom: 5px;
+}
+
+
+.view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto; /* This pushes the filter buttons to the right */
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #007bff;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+.toggle-label {
+  font-weight: bold;
+  color: #ffffff;
+  min-width: 80px;
+}
+
+/* Analytics Container Layout */
+.analytics-container {
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
+  padding: 20px;
+  align-items: flex-start;
+  margin-top: 80px;
+}
+
+.chart-container {
+  flex: 1;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(250px, 1fr)); /* Changed to fixed 3 columns */
+  gap: 10px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.stat-card {
+  background-color: #333;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.stat-card p {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: bold;
+  margin: 0;
+}
+
+.pie-chart {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.pie-full {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #28a745; /* Green - non-sealed */
+}
+
+.pie-cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #007bff; /* Blue - sealed */
+  transform-origin: center;
+  clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 50%);
+}
+
+.pie-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #28a745; /* Green for non-sealed */
+}
+
+.pie-slice {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  background-color: #007bff; /* Blue for sealed */
+  clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 50%);
+}
+
+.slice-sealed {
+  z-index: 2;
+}
+
+.slice-non-sealed {
+  z-index: 1;
+}
+
+.chart-center {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background-color: #111;
+  border-radius: 50%;
+  top: 20%;
+  left: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 2;
+}
+
+.chart-center h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.chart-center p {
+  margin: 5px 0 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3ff558;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.legend-sealed {
+  background-color: #28a745;
+}
+
+.legend-non-sealed {
+  background-color: #007bff;
+}
+
+/* Enhanced Responsive styling */
+@media (max-width: 1200px) {
+  .portfolio-container {
+    padding: 0 5%;
+  }
+  
+  .analytics-container {
+    gap: 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+  }
+  
+  .analytics-container {
+    gap: 50px;
+    flex-direction: column;
+  }
+  
+  .chart-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .portfolio-header {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-container {
+    padding: 0 3%;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    min-width: 160px;
+    padding: 0.8rem;
+  }
+  
+  .pie-chart {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .stat-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .stat-card p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .portfolio-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filter-buttons {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .view-toggle {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-container {
+    padding: 0 2%;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+  }
+  
+  .card {
+    min-width: 140px;
+    padding: 0.7rem;
+  }
+  
+  .card h3 {
+    font-size: 0.9rem;
+  }
+  
+  .card p {
+    font-size: 0.8rem;
+  }
+  
+  .quantity-controls {
+    gap: 5px;
+  }
+  
+  .quantity-controls button {
+    padding: 3px 6px;
+    font-size: 0.8rem;
+  }
+  
+  .pie-chart {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 375px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card {
+    width: 100%;
+    min-width: unset;
+  }
+  
+  .filter-buttons button {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+}
