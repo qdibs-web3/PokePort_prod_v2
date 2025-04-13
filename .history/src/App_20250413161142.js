@@ -18,13 +18,15 @@ const AppContent = () => {
   // Check if user is logged in (check for token)
   useEffect(() => {
     const token = localStorage.getItem('token');
-    const username = localStorage.getItem('username');
-    
-    if (token && username) {
+    if (token) {
       setIsLoggedIn(true);
-      setUser({ name: username });
+      // Assuming you have an endpoint that returns user data based on the token
+      // You can fetch user info if needed, or you can store it in localStorage
+      // For example:
+      const userData = JSON.parse(localStorage.getItem('user')) || null;
+      setUser(userData);
     }
-  }, []);  
+  }, []);
 
   const handleLogin = (userData) => {
     setIsLoggedIn(true);
