@@ -122,7 +122,7 @@
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
+  gap: 40px;
   align-items: stretch; /* Ensure all cards stretch to the same height */
   margin-bottom: 100px;
 }
@@ -158,7 +158,7 @@
 
 .card h3 {
   font-size: 1rem;
-  margin: 0 0 0.1rem 0; /* Adds a uniform bottom margin */
+  margin: 0.001rem 0; /* Reduced vertical spacing */
   color: #007bff;
   width: 100%; /* Ensure the h3 takes up the full width */
 }
@@ -166,8 +166,8 @@
 .card p {
   font-size: 0.9rem;
   color: #ffffff;
-  margin: 0.3rem 0; /* Provides even vertical spacing between paragraphs */
-  line-height: 1.2; /* Slightly more breathing room for text */
+  margin: -0.1rem 0; /* Reduced vertical spacing */
+  line-height: 1; /* Reduced line height */
 }
 
 .card-footer {
@@ -473,7 +473,7 @@ input:checked + .toggle-slider:before {
 /* Force a 4-column layout on wide screens */
 @media (min-width: 1200px) {
   .portfolio-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, .1fr);
   }
 }
 

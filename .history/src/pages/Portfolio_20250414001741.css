@@ -158,7 +158,7 @@
 
 .card h3 {
   font-size: 1rem;
-  margin: 0 0 0.1rem 0; /* Adds a uniform bottom margin */
+  margin: 0.001rem 0; /* Reduced vertical spacing */
   color: #007bff;
   width: 100%; /* Ensure the h3 takes up the full width */
 }
@@ -166,8 +166,8 @@
 .card p {
   font-size: 0.9rem;
   color: #ffffff;
-  margin: 0.3rem 0; /* Provides even vertical spacing between paragraphs */
-  line-height: 1.2; /* Slightly more breathing room for text */
+  margin: -0.1rem 0; /* Reduced vertical spacing */
+  line-height: 1; /* Reduced line height */
 }
 
 .card-footer {

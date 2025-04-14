@@ -1,7 +1,7 @@
 /* Chat.css - Styling for the Chat component */
 
 .chat-container {
-  max-width: 600px;
+  max-width: 1000px;
   margin: 50px auto;
   padding: 20px;
   background-color: #111;
@@ -78,56 +78,27 @@
   line-height: 1.4;
 }
 
+.message-image-container {
+  margin-top: 10px;
+}
+
+.message-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 4px;
+}
+
 .message-form {
-  margin-top: auto;
-}
-
-.send-message-container {
   display: flex;
-  width: 100%;
-  gap: 10px;
+  flex-direction: column;
+  width: 600px;
 }
-
-.send-input {
-  width: 80%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #555;
-  background-color: #444;
-  color: white;
-  font-size: 1rem;
-}
-
-.send-btn {
-  width: 20%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.send-btn:hover {
-  background-color: #0056b3;
-}
-
 
 .message-input-container {
   position: relative;
   display: flex;
   flex-direction: column;
 }
-
-.message.even {
-  background-color: #3a3a3a; /* Slightly lighter dark */
-}
-
-.message.odd {
-  background-color: #2f2f2f; /* Slightly darker dark */
-}
-
 
 .message-input {
   padding: 12px;

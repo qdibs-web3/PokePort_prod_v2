@@ -116,7 +116,7 @@
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
+  gap: 40px;
   padding: 1rem 0;
   align-items: start; /* Prevents stretching */
   justify-content: start; /* Ensures alignment without expansion */

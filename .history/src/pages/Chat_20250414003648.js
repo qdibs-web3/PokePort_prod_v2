@@ -87,10 +87,7 @@ const Chat = ({ isLoggedIn }) => {
           <p>Loading messages...</p>
         ) : (
           messages.map((msg, idx) => (
-            <div
-              key={idx}
-              className={`message ${msg.username === localStorage.getItem('username') ? 'own-message' : 'other-message'} ${idx % 2 === 0 ? 'even' : 'odd'}`}
-            >
+            <div key={idx} className="message">
               <div className="message-header">
                 <span className={msg.username === localStorage.getItem('username') ? 'own-username' : 'other-username'}>
                   <strong>{msg.username}</strong>

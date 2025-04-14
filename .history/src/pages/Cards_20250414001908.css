@@ -38,7 +38,7 @@
 .cards-container {
   padding: 0 10%;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1400px;
   position: relative; /* Ensure the loading spinner is positioned correctly */
   margin-bottom: 100px;
 }
@@ -116,7 +116,7 @@
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
+  gap: 40px;
   padding: 1rem 0;
   align-items: start; /* Prevents stretching */
   justify-content: start; /* Ensures alignment without expansion */
@@ -224,7 +224,7 @@
 
 /* Force a 4-column layout on wide screens */
 @media (min-width: 1200px) {
-  .cards-grid {
+  .cards-container {
     grid-template-columns: repeat(4, 1fr);
   }
 }
