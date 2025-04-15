@@ -333,7 +333,6 @@
   .filter-buttons {
     flex-wrap: wrap;
     gap: 0.4rem;
-    align-items: left;
   }
   
   .filter-buttons button {
