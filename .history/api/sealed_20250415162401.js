@@ -2,13 +2,9 @@ const axios = require('axios');
 
 let cachedSealedData = null;
 let cachedTotalCount = 0;
-let loading = false;
 
+// Function to preload sealed sets once
 async function preloadSealedData() {
-  if (cachedSealedData || loading) return; // prevent refetch if it's already loaded or loading
-
-  loading = true;
-
   const pageSize = 250;
   let page = 1;
   let allItems = [];
@@ -17,7 +13,7 @@ async function preloadSealedData() {
   try {
     do {
       const apiUrl = `https://api.pokemontcg.io/v2/sealed?page=${page}&pageSize=${pageSize}`;
-      console.log(`Preloading sealed page ${page}...`);
+      console.log(`Preloading page ${page}...`);
 
       const response = await axios.get(apiUrl, {
         headers: {
@@ -35,18 +31,17 @@ async function preloadSealedData() {
       page++;
     } while (allItems.length < totalCount);
 
+    // Cache the data
     cachedSealedData = allItems;
     cachedTotalCount = totalCount;
 
-    console.log(`Preloaded ${totalCount} sealed items.`);
+    console.log(`Preloading complete: ${cachedTotalCount} items loaded.`);
   } catch (error) {
-    console.error('Preloading sealed sets failed:', error.message);
-  } finally {
-    loading = false;
+    console.error('Error during preloading sealed sets:', error.message);
   }
 }
 
-// Preload once on cold start
+// Immediately preload at startup
 preloadSealedData();
 
 module.exports = async (req, res) => {
@@ -54,8 +49,8 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  if (!cachedSealedData) {
-    return res.status(503).json({ error: 'Sealed data is loading, try again shortly.' });
+  if (!cachedSealedData || cachedSealedData.length === 0) {
+    return res.status(503).json({ error: 'Sealed data not yet loaded' });
   }
 
   return res.status(200).json({ data: cachedSealedData, totalCount: cachedTotalCount });
