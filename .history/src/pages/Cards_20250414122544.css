@@ -1,0 +1,441 @@
+/* Cards.css with enhanced responsive design */
+/* Loading container styling */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed; /* Center on the page */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Loading spinner styling */
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #09f;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading text styling */
+.loading-text {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Container for the entire Cards component */
+.cards-container {
+  padding: 0 10%;
+  margin: 0 auto;
+  max-width: 1200px;
+  position: relative; /* Ensure the loading spinner is positioned correctly */
+  margin-bottom: 100px;
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Add spacing between header elements */
+  margin-bottom: 1.5rem;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Add spacing between header text and search box */
+}
+
+/* Back button styling */
+.back-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  align-self: flex-start; /* Align to the left */
+  margin: 20px 0 10px 0; /* Add padding above the button */
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+/* Search box styling */
+.search-box {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  width: 140px; /* Set fixed width */
+}
+
+/* Filter buttons styling */
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem; /* Add spacing between buttons */
+  flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+  justify-content: left;
+}
+
+.filter-buttons button {
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.filter-buttons button.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Cards grid styling */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  padding: 1rem 0;
+  align-items: start; /* Prevents stretching */
+  justify-content: start; /* Ensures alignment without expansion */
+}
+
+/* Card styling */
+.card {
+  height: auto;
+  width: 200px; /* Fixed width to prevent growth */
+  max-width: 100%; /* Prevent overflow */
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #111;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  min-width: 200px; /* Prevents cards from shrinking when few remain */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin: 0.25rem 0;
+}
+
+.card p {
+  font-size: 0.8rem;
+  color: #ffffff;
+  margin: 0.01rem 0;
+  text-align: left;
+}
+
+.card button {
+  background-color: transparent;
+  color: #000000;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.card button:hover {
+  background-color: #0056b3;
+}
+
+/* Enlarged card overlay */
+.enlarged-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.enlarged-card {
+  position: relative;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #000;
+}
+
+.enlarged-card img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+/* Add at bottom of Cards.css */
+
+.popup-message {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, #00c6ff, #00f7ff);
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  animation: fadeInOut 3s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+.card button.added {
+  background-color: transparent;
+  color: green;
+  border: 1px solid green;
+  cursor: default;
+}
+
+
+/* Force a 4-column layout on wide screens */
+@media (min-width: 1200px) {
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Enhanced Responsive styling */
+@media (max-width: 1200px) {
+  .cards-container {
+    padding: 0 7%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cards-container {
+    padding: 0 5%;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+  }
+  
+  .card {
+    width: 180px;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 25px;
+  }
+  
+  .card {
+    width: 160px;
+    min-width: 160px;
+    padding: 0.8rem;
+  }
+  
+  .card h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    padding: 0 3%;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
+
+  .search-box {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .filter-buttons {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  
+  .filter-buttons button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    width: 150px;
+    min-width: 150px;
+    padding: 0.7rem;
+  }
+  
+  .card h3 {
+    font-size: 1rem;
+  }
+  
+  .card p {
+    font-size: 0.85rem;
+  }
+  
+  .card button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .cards-container {
+    padding: 0 2%;
+  }
+  
+  .header {
+    gap: 5px;
+  }
+  
+  .back-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    margin: 15px 0 8px 0;
+  }
+  
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+  }
+  
+  .card {
+    width: 140px;
+    min-width: 140px;
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .card {
+    width: 100%;
+    min-width: unset;
+    margin: 0 auto;
+  }
+
+  .back-button {
+    width: auto;
+    text-align: center;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+  
+  .enlarged-card {
+    padding: 0.8rem;
+  }
+  
+  .close-btn {
+    top: 5px;
+    right: 5px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card {
+    width: 90%;
+    max-width: 250px;
+  }
+  
+  .filter-buttons button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}

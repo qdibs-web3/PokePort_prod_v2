@@ -1,0 +1,84 @@
+/* Home.css */
+
+.home-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: flex-start; /* Align content to the top */
+  height: 100vh; /* Full viewport height */
+  background-image: url('../assets/pokefuck.png'); /* Replace with your image path */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  color: rgb(255, 255, 255); /* Text color */
+  padding: 20px; /* Add some padding */
+}
+
+.home-container h1 {
+  font-size: 2rem; /* Adjust the font size as needed */
+  text-shadow: 12px 12px 14px rgba(0, 0, 0, 0.5); /* Add a shadow to the text */
+  opacity: .7;
+  padding: 10px; /* Add padding to the text */
+  border-radius: 10px; /* Rounded corners */
+  margin: 0; /* Remove default margin */
+  position: absolute; /* Position the h1 absolutely */
+  top: 78%; /* Move down by 60% of the viewport height */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for exact centering */
+  text-align: center; /* Ensure text is centered */
+  width: 80%; /* Control width on all devices */
+  max-width: 600px; /* Maximum width on larger screens */
+}
+
+.home-link {
+  font-size: 2rem; /* Adjust the font size as needed */
+  text-shadow: 12px 12px 14px rgba(0, 0, 0, 0.5); /* Add a shadow to the text */
+
+  padding: 10px; /* Add padding to the text */
+  border-radius: 10px; /* Rounded corners */
+  margin: 0; /* Remove default margin */
+  position: absolute; /* Position the h1 absolutely */
+  top: 82%; /* Move down by 60% of the viewport height */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for exact centering */
+  text-align: center; /* Ensure text is centered */
+  width: 80%; /* Control width on all devices */
+  max-width: 600px; /* Maximum width on larger screens */
+  text-decoration: none;
+}
+
+/* Medium devices (tablets) */
+@media (max-width: 768px) {
+  .home-container h1 {
+    font-size: 1.8rem;
+    width: 85%;
+    padding: 8px;
+  }
+}
+
+/* Small devices (mobile phones) */
+@media (max-width: 576px) {
+  .home-container h1 {
+    font-size: 1.5rem;
+    width: 90%;
+    padding: 8px;
+    top: 75%;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .home-container h1 {
+    font-size: 1.3rem; /* Adjust font size for smaller screens */
+    top: 70%; /* Adjust position for smaller screens */
+    width: 95%;
+    padding: 6px;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 320px) {
+  .home-container h1 {
+    font-size: 1.1rem;
+    top: 65%;
+  }
+}

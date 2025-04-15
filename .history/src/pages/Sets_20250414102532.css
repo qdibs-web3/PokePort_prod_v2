@@ -1,0 +1,229 @@
+/* Sets.css with enhanced responsive design */
+
+/* Loading container styling */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed; /* Center on the page */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Loading spinner styling */
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #09f;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading text styling */
+.loading-text {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Container for the entire Sets component */
+.sets-container {
+  padding: 0 0; /* 20% padding on left and right */
+  margin: 0 auto; /* Center the container */
+  max-width: 1200px; /* Limit maximum width for better readability */
+}
+
+/* Title styling */
+.sets-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+/* Grid layout for the sets */
+.sets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 1.5rem; /* Space between grid items */
+  padding: 1rem 0; /* Padding at the top and bottom */
+}
+
+/* Styling for each set card */
+.set-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #111;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit text color */
+}
+
+/* Hover effect for set cards */
+.set-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Logo styling */
+.set-logo {
+  width: 200px; /* Fixed width */
+  height: 200px; /* Fixed height */
+  object-fit: contain; /* Ensure the logo fits within the dimensions */
+  margin-bottom: 1rem;
+}
+
+/* Set name styling */
+.set-card h3 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  color: #ffffff;
+}
+
+/* Release date styling */
+.set-card p {
+  font-size: 0.9rem;
+  color: #999;
+  margin: 0;
+}
+
+/* Enhanced responsive styling */
+@media (max-width: 1200px) {
+  .sets-container {
+    padding: 0 15%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sets-container {
+    padding: 0 10%;
+  }
+  
+  .sets-container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.8rem;
+  }
+  
+  .sets-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+  }
+  
+  .set-logo {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sets-container {
+    padding: 0 5%;
+  }
+  
+  .sets-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .sets-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  
+  .set-logo {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .set-card h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .sets-container {
+    padding: 0 3%;
+  }
+  
+  .sets-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .sets-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.8rem;
+  }
+  
+  .set-card {
+    padding: 0.8rem;
+  }
+  
+  .set-logo {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .set-card h3 {
+    font-size: 1rem;
+    margin: 0.3rem 0;
+  }
+  
+  .set-card p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sets-container h1 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  .sets-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem;
+  }
+  
+  .set-logo {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .set-card {
+    padding: 0.7rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .sets-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .set-card {
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .set-logo {
+    width: 150px;
+    height: 150px;
+  }
+}

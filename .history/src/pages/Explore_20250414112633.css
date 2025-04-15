@@ -1,0 +1,504 @@
+/* Explore.css with enhanced responsive design */
+/* Set the background color for the entire page */
+body {
+  background-color: #000000;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+/* Loading container styling */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* Make sure it's clickable */
+}
+
+/* Loading spinner styling */
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #09f;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading text styling */
+.loading-text {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.loading-text a {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Container for the entire Dashboard component */
+.dashboard-container {
+  padding: 0 10%;
+  margin: 0 auto;
+  max-width: 1200px;
+  background-color: #000000;
+}
+
+/* Title styling */
+.dashboard-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+/* Grid layout for the series */
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  padding: 1rem 0;
+}
+
+/* Styling for each series item */
+.series-item {
+  text-align: center;
+  min-height: 80px;
+  max-height: 100px;
+  background-color: #111;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem 1rem 2rem 1rem; /* More bottom space */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: white;
+}
+
+/* Hover effect for series items */
+.series-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: #007bff;
+  opacity: 1;
+}
+
+/* Styling for the series links */
+.series-link {
+  font-size: 1.2rem; /* Slightly smaller for long titles */
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  word-break: break-word; /* Break long names */
+}
+
+/* Hover effect for series links */
+.series-link:hover {
+  color: #007bff;
+}
+
+/* View toggle buttons */
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.view-toggle button {
+  background-color: #333;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-weight: bolder;
+}
+
+.view-toggle button.active,
+.view-toggle button:hover {
+  background-color: #007bff;
+}
+
+/* Sealed controls (filters/search) */
+.sealed-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sealed-controls input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: none;
+  min-width: 150px;
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+.sealed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem; /* Increased from 1rem to add more vertical spacing */
+}
+
+/* Sealed item styles */
+.sealed-item {
+  background-color: #111;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 0.5rem; /* Added to ensure spacing between items */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sealed-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Sealed item image styling */
+.sealed-img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.sealed-item h3 {
+  font-size: 1rem;
+  margin: 1rem 0;
+  flex-grow: 0;  /* Allow product name to take minimum space */
+  text-align: left;
+  color: #007bff;
+}
+
+/* Price styling */
+.mid-price {
+  margin: 15px 0; /* Reduced from auto to create only 5px gap below */
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+/* Button styling */
+.sealed-item button {
+  margin-bottom: 10px; /* Reduced from 1rem to create only 5px gap above */
+  padding: 0.5rem 0.75rem; /* Reduced horizontal padding to make button narrower */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: auto; /* Changed from 100% to allow natural width */
+  max-width: 120px; /* Set a minimum width that looks good */
+  align-self: left; /* Center the button */
+}
+
+.sealed-item .mid-price, 
+.sealed-item button {
+  display: block;
+  margin-top: 2px; /* Ensures these are pushed to the bottom */
+}
+
+/* Pagination controls */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.small-text {
+  font-size: 0.7em;
+  word-break: break-word;
+}
+
+/* Filter buttons styling */
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-buttons button {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.filter-buttons button.active {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Enhanced responsive styling */
+@media (max-width: 1200px) {
+  .dashboard-container {
+    padding: 0 7%;
+  }
+  
+  .series-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard-container {
+    padding: 0 5%;
+  }
+  
+  .dashboard-container h1 {
+    font-size: 2.2rem;
+  }
+  
+  .series-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .sealed-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .series-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  
+  .series-link {
+    font-size: 1.3rem;
+  }
+  
+  .view-toggle {
+    gap: 1.5rem;
+  }
+  
+  .view-toggle button {
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 0 3%;
+  }
+  
+  .dashboard-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .series-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.8rem;
+  }
+  
+  .sealed-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+  
+  .sealed-img {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .view-toggle {
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .view-toggle button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .filter-buttons button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .series-link {
+    font-size: 1.1rem;
+  }
+  
+  .series-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.7rem;
+  }
+
+  .view-toggle {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .view-toggle button {
+    width: 80%;
+    max-width: 250px;
+  }
+
+  .sealed-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .sealed-controls input {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+  
+  .sealed-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.7rem;
+  }
+
+  .sealed-img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .sealed-item {
+    padding: 0.8rem;
+  }
+
+  .sealed-item h3 {
+    font-size: 0.9rem;
+    margin: 0.8rem 0;
+  }
+  
+  .mid-price {
+    font-size: 0.8rem;
+    margin: 10px 0;
+  }
+
+  .filter-buttons {
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .sealed-item button {
+    min-width: 100px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  .pagination {
+    gap: 0.7rem;
+    margin: 1.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 0 2%;
+  }
+  
+  .dashboard-container h1 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  .series-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  
+  .series-item {
+    padding: 0.8rem 0.8rem 1.5rem 0.8rem;
+  }
+  
+  .series-link {
+    font-size: 1rem;
+  }
+  
+  .sealed-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  
+  .sealed-img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .sealed-item h3 {
+    font-size: 0.85rem;
+    margin: 0.6rem 0;
+  }
+  
+  .filter-buttons button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .series-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sealed-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sealed-img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .sealed-item {
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

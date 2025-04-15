@@ -1,0 +1,83 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../assets/pokefuck.png'); /* Update if needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+.home-content {
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+  animation: fadeInUp 1.2s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.home-link a {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.home-link a:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Responsive Typography & Layout */
+@media (max-width: 768px) {
+  .home-container h1 {
+    font-size: 2rem;
+  }
+
+  .home-link a {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container h1 {
+    font-size: 1.6rem;
+  }
+
+  .home-content {
+    padding: 30px 20px;
+  }
+}
