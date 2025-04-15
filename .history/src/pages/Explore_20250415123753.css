@@ -385,10 +385,6 @@ body {
   .filter-buttons button {
     padding: 0.4rem 0.8rem;
     font-size: 0.85rem;
-    align-content: left;
-    justify-content: left;
-    align-items: left;
-    justify-items: left;
   }
 }
 

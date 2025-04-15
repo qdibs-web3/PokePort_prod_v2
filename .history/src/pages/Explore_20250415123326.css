@@ -241,7 +241,7 @@ body {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: center;
 }
 
 .filter-buttons button {
@@ -253,7 +253,6 @@ body {
   font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
-  justify-content: left;
 }
 
 .filter-buttons button:hover {
@@ -385,10 +384,6 @@ body {
   .filter-buttons button {
     padding: 0.4rem 0.8rem;
     font-size: 0.85rem;
-    align-content: left;
-    justify-content: left;
-    align-items: left;
-    justify-items: left;
   }
 }
 
@@ -510,12 +505,6 @@ body {
   .sealed-item h3 {
     font-size: 0.85rem;
     margin: 0.6rem 0;
-  }
-
-  .filter-buttons {
-    justify-content: left;
-    align-items: left;
-    gap: 0.4rem;
   }
   
   .filter-buttons button {

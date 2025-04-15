@@ -10,7 +10,6 @@
   height: calc(100vh - 170px);
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Prevent content from overflowing */
 }
 
 .chat-container h2 {
@@ -24,9 +23,7 @@
   display: flex;
   flex: 1;
   gap: 10px;
-  height: calc(100% - 60px); /* Account for header height */
-  min-height: 0; /* Important for flex children to respect parent height */
-  overflow: hidden; /* Prevent content from overflowing */
+  height: 100%;
 }
 
 /* Chat channels sidebar */
@@ -39,8 +36,6 @@
   flex-direction: column;
   gap: 5px;
   overflow-y: auto;
-  min-height: 0; /* Important for flex children to respect parent height */
-  max-height: 100%; /* Ensure it doesn't exceed parent height */
 }
 
 .channel-item {
@@ -87,8 +82,6 @@
   width: 70%;
   display: flex;
   flex-direction: column;
-  min-height: 0; /* Important for flex children to respect parent height */
-  max-height: 100%; /* Ensure it doesn't exceed parent height */
 }
 
 .messages-container {
@@ -101,7 +94,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  min-height: 0; /* Important for flex children to respect parent height */
 }
 
 .message {
@@ -159,8 +151,7 @@
 .message-form {
   margin: 0;
   width: 100%;
-  padding: 0;
-  flex-shrink: 0; /* Prevent form from shrinking */
+  padding: none;
 }
 
 .send-message-container {
@@ -238,10 +229,6 @@
   cursor: pointer;
 }
 
-.bottom-spacer {
-  height: 20px; /* Add some space at the bottom of messages */
-}
-
 /* Responsive styles */
 @media (max-width: 768px) {
   .chat-container {
@@ -255,7 +242,6 @@
 
   .chat-layout {
     flex-direction: column;
-    height: calc(100% - 80px); /* Account for header and toggle button */
   }
 
   .chat-channels {
